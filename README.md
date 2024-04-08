@@ -8,3 +8,20 @@
 ![image](https://github.com/RESMIRNAIR/DEMULTIPLEXER1TO4/assets/154305926/f48cc07d-c76f-4d1c-8907-11e99711b751)
 ![image](https://github.com/RESMIRNAIR/DEMULTIPLEXER1TO4/assets/154305926/a3075cf9-55ba-4478-b20c-c7128badef04)
 ![image](https://github.com/RESMIRNAIR/DEMULTIPLEXER1TO4/assets/154305926/e07386db-69b3-4a5f-945f-b38929b801ea)
+# Program
+```
+module demux_1_4( input [1:0] sel, input i, output reg y0,y1,y2,y3);
+
+always @(*)
+ begin case(sel)
+ 2'h0: {y0,y1,y2,y3} = {i,3'b0};
+ 2'h1: {y0,y1,y2,y3} = {1'b0,i,2'b0};
+ 2'h2: {y0,y1,y2,y3} = {2'b0,i,1'b0};
+ 2'h3: {y0,y1,y2,y3} = {3'b0,i};
+ default: $display("Invalid sel input");
+ endcase
+ end
+ endmodule
+```
+# Output
+![319912662-9ff8f11d-da98-4881-bcdd-06c733fbaa6b](https://github.com/gokulvenkatesan31/DEMULTIPLEXER1TO4/assets/123715763/41276695-d19a-4058-bf16-7e7e38e48c77)
